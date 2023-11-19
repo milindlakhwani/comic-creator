@@ -34,9 +34,10 @@ class PromptForm extends ConsumerWidget {
         ),
         child: Text(
           title,
-          style: MyFonts.bold
-              .setColor(iconColor)
-              .size(SizeConfig.textScaleFactor * 20),
+          style: MyFonts.bold.setColor(iconColor).size(
+              SizeConfig.screenWidth > 900 || SizeConfig.screenWidth < 600
+                  ? SizeConfig.textScaleFactor * 20
+                  : SizeConfig.textScaleFactor * 13),
         ),
       ),
       divider: Divider(
@@ -144,9 +145,11 @@ class PromptForm extends ConsumerWidget {
                       "Selected Frame : ${promptViewController + 1}",
                       softWrap: true,
                       overflow: TextOverflow.clip,
-                      style: MyFonts.bold
-                          .setColor(textColor)
-                          .size(SizeConfig.textScaleFactor * 18),
+                      style: MyFonts.bold.setColor(textColor).size(
+                          SizeConfig.screenWidth > 900 ||
+                                  SizeConfig.screenWidth < 600
+                              ? SizeConfig.textScaleFactor * 18
+                              : SizeConfig.textScaleFactor * 11),
                     ),
                     doneButton(ref),
                   ],

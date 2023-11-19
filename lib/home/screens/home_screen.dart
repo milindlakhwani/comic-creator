@@ -82,7 +82,7 @@ class HomeScreen extends ConsumerWidget {
                 SizeConfig.screenWidth > 1300 ? 'Save and Export' : 'Save',
                 style: MyFonts.bold.setColor(textColor).size(
                       SizeConfig.screenWidth < 800
-                          ? SizeConfig.textScaleFactor * 15
+                          ? SizeConfig.textScaleFactor * 13
                           : SizeConfig.textScaleFactor * 20,
                     ),
               ),
@@ -135,7 +135,7 @@ class HomeScreen extends ConsumerWidget {
                     child: ref.read(editorControllerProvider),
                   ),
                   SizedBox(
-                    width: SizeConfig.horizontalBlockSize * 5,
+                    width: SizeConfig.horizontalBlockSize * 7,
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: ElevatedButton(

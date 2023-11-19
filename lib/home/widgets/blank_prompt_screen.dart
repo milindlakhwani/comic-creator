@@ -11,10 +11,10 @@ class BlankPromptScreen extends StatelessWidget {
     return Center(
       child: Text(
         "Select a frame to begin editing!",
-        style: MyFonts.light
-            .setColor(Colors.white)
-            .letterSpace(0.9)
-            .size(SizeConfig.textScaleFactor * 15),
+        style: MyFonts.light.setColor(Colors.white).letterSpace(0.9).size(
+            SizeConfig.screenWidth > 900 || SizeConfig.screenWidth < 600
+                ? SizeConfig.textScaleFactor * 15
+                : SizeConfig.textScaleFactor * 10),
       ),
     );
   }
