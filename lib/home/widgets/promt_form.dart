@@ -35,9 +35,9 @@ class PromptForm extends ConsumerWidget {
         child: Text(
           title,
           style: MyFonts.bold.setColor(iconColor).size(
-              SizeConfig.screenWidth > 900 || SizeConfig.screenWidth < 600
+              SizeConfig.screenWidth > 1100 || SizeConfig.screenWidth < 600
                   ? SizeConfig.textScaleFactor * 20
-                  : SizeConfig.textScaleFactor * 13),
+                  : SizeConfig.textScaleFactor * 14),
         ),
       ),
       divider: Divider(
@@ -146,14 +146,19 @@ class PromptForm extends ConsumerWidget {
                       softWrap: true,
                       overflow: TextOverflow.clip,
                       style: MyFonts.bold.setColor(textColor).size(
-                          SizeConfig.screenWidth > 900 ||
+                          SizeConfig.screenWidth > 1100 ||
                                   SizeConfig.screenWidth < 600
-                              ? SizeConfig.textScaleFactor * 18
-                              : SizeConfig.textScaleFactor * 11),
+                              ? SizeConfig.textScaleFactor * 17
+                              : SizeConfig.textScaleFactor * 12),
                     ),
-                    doneButton(ref),
+                    if (SizeConfig.screenWidth > 950 ||
+                        SizeConfig.screenWidth < 600)
+                      doneButton(ref),
                   ],
                 ),
+                if (SizeConfig.screenWidth < 950 &&
+                    SizeConfig.screenWidth > 600)
+                  doneButton(ref),
                 MySpaces.vGapInBetween,
                 Text(
                   "Prompt",

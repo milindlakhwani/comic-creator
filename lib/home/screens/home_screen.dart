@@ -57,7 +57,6 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Initializing Sizeconfig class
     SizeConfig().init(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
