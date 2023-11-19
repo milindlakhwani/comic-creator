@@ -14,7 +14,7 @@ class BlankPromptScreen extends StatelessWidget {
         style: MyFonts.light
             .setColor(Colors.white)
             .letterSpace(0.9)
-            .size(SizeConfig.horizontalBlockSize),
+            .size(SizeConfig.textScaleFactor * 15),
       ),
     );
   }

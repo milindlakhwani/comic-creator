@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:comic_creator/core/providers/api_provider.dart';
 import 'package:comic_creator/core/utils.dart';
-import 'package:comic_creator/features/home/controller/home_controller.dart';
+import 'package:comic_creator/home/controller/home_controller.dart';
 
 final promptController = StateNotifierProvider<PromptController, bool>(
   (ref) {

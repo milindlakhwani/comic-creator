@@ -9,8 +9,8 @@ import 'package:comic_creator/core/globals/my_fonts.dart';
 import 'package:comic_creator/core/globals/my_spaces.dart';
 import 'package:comic_creator/core/globals/size_config.dart';
 import 'package:comic_creator/core/utils.dart';
-import 'package:comic_creator/features/home/controller/home_controller.dart';
-import 'package:comic_creator/features/home/controller/save_controller.dart';
+import 'package:comic_creator/home/controller/home_controller.dart';
+import 'package:comic_creator/home/controller/save_controller.dart';
 
 class CustomDialogBox extends ConsumerStatefulWidget {
   const CustomDialogBox({super.key});
@@ -64,7 +64,7 @@ class _CustomDialogBoxState extends ConsumerState<CustomDialogBox> {
             "$text : ",
             style: MyFonts.bold
                 .setColor(textColor)
-                .size(SizeConfig.horizontalBlockSize * (small ? 0.9 : 1.15)),
+                .size(SizeConfig.textScaleFactor * (small ? 13 : 17)),
           ),
           MySpaces.hGapInBetween,
           Expanded(

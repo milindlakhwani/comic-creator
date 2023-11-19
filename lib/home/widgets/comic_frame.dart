@@ -7,8 +7,8 @@ import 'package:comic_creator/core/globals/my_colors.dart';
 import 'package:comic_creator/core/globals/my_fonts.dart';
 import 'package:comic_creator/core/globals/my_spaces.dart';
 import 'package:comic_creator/core/utils.dart';
-import 'package:comic_creator/features/home/controller/home_controller.dart';
-import 'package:comic_creator/features/home/controller/prompt_controller.dart';
+import 'package:comic_creator/home/controller/home_controller.dart';
+import 'package:comic_creator/home/controller/prompt_controller.dart';
 
 class ComicFrame extends ConsumerWidget {
   // Takes the image and the index to perform operations like edit and delete

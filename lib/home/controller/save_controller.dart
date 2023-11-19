@@ -11,7 +11,7 @@ import 'package:comic_creator/core/globals/my_colors.dart';
 import 'package:comic_creator/core/globals/size_config.dart';
 import 'package:comic_creator/core/type_defs.dart';
 import 'package:comic_creator/core/utils.dart';
-import 'package:comic_creator/features/home/controller/home_controller.dart';
+import 'package:comic_creator/home/controller/home_controller.dart';
 
 final saveController = Provider((ref) {
   return SaveController(ref: ref);

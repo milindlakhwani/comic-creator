@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:comic_creator/features/home/controller/home_controller.dart';
-import 'package:comic_creator/features/home/widgets/comic_frame.dart';
+import 'package:comic_creator/home/controller/home_controller.dart';
+import 'package:comic_creator/home/widgets/comic_frame.dart';
 
 // Defining the provider whose state is a consumer widget
 final editorControllerProvider =

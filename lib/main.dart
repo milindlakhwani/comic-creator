@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:comic_creator/features/home/screens/home_screen.dart';
+import 'package:comic_creator/home/screens/home_screen.dart';
 import 'package:comic_creator/theme/pallete.dart';
 
 void main() async {

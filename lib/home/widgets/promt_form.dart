@@ -7,8 +7,8 @@ import 'package:comic_creator/core/globals/my_fonts.dart';
 import 'package:comic_creator/core/globals/my_spaces.dart';
 import 'package:comic_creator/core/globals/size_config.dart';
 import 'package:comic_creator/core/utils.dart';
-import 'package:comic_creator/features/home/controller/prompt_controller.dart';
-import 'package:comic_creator/features/home/widgets/blank_prompt_screen.dart';
+import 'package:comic_creator/home/controller/prompt_controller.dart';
+import 'package:comic_creator/home/widgets/blank_prompt_screen.dart';
 
 // Widget that accepts prompt as input
 class PromptForm extends ConsumerWidget {
@@ -36,7 +36,7 @@ class PromptForm extends ConsumerWidget {
           title,
           style: MyFonts.bold
               .setColor(iconColor)
-              .size(SizeConfig.horizontalBlockSize * 1.2),
+              .size(SizeConfig.textScaleFactor * 20),
         ),
       ),
       divider: Divider(
@@ -146,7 +146,7 @@ class PromptForm extends ConsumerWidget {
                       overflow: TextOverflow.clip,
                       style: MyFonts.bold
                           .setColor(textColor)
-                          .size(SizeConfig.horizontalBlockSize * 1.2),
+                          .size(SizeConfig.textScaleFactor * 18),
                     ),
                     doneButton(ref),
                   ],
@@ -156,7 +156,7 @@ class PromptForm extends ConsumerWidget {
                   "Prompt",
                   style: MyFonts.bold
                       .setColor(textColor)
-                      .size(SizeConfig.horizontalBlockSize * 0.7),
+                      .size(SizeConfig.textScaleFactor * 11),
                 ),
                 MySpaces.vSmallestGapInBetween,
                 SizedBox(
@@ -188,7 +188,7 @@ class PromptForm extends ConsumerWidget {
                   "Generative Speech Bubble (Experimental)",
                   style: MyFonts.bold
                       .setColor(textColor)
-                      .size(SizeConfig.horizontalBlockSize * 0.8),
+                      .size(SizeConfig.textScaleFactor * 11),
                 ),
                 MySpaces.vSmallestGapInBetween,
                 SizedBox(

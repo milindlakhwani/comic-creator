@@ -6,10 +6,10 @@ import 'package:comic_creator/core/globals/my_colors.dart';
 import 'package:comic_creator/core/globals/my_fonts.dart';
 import 'package:comic_creator/core/globals/size_config.dart';
 import 'package:comic_creator/core/utils.dart';
-import 'package:comic_creator/features/home/controller/editor_controller.dart';
-import 'package:comic_creator/features/home/controller/home_controller.dart';
-import 'package:comic_creator/features/home/widgets/save_dialog.dart';
-import 'package:comic_creator/features/home/widgets/promt_form.dart';
+import 'package:comic_creator/home/controller/editor_controller.dart';
+import 'package:comic_creator/home/controller/home_controller.dart';
+import 'package:comic_creator/home/widgets/save_dialog.dart';
+import 'package:comic_creator/home/widgets/promt_form.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -57,6 +57,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Initializing Sizeconfig class
     SizeConfig().init(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -78,9 +79,11 @@ class HomeScreen extends ConsumerWidget {
               onPressed: () => initiateSave(ref, context),
               color: buttonColorBlue,
               child: Text(
-                'Save and Export',
+                SizeConfig.screenWidth > 1300 ? 'Save and Export' : 'Save',
                 style: MyFonts.bold.setColor(textColor).size(
-                      SizeConfig.horizontalBlockSize * 1.2,
+                      SizeConfig.screenWidth < 800
+                          ? SizeConfig.textScaleFactor * 15
+                          : SizeConfig.textScaleFactor * 20,
                     ),
               ),
             ),
@@ -147,11 +150,11 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         child: Padding(
                           padding: EdgeInsets.all(
-                              SizeConfig.horizontalBlockSize * 0.8),
+                              SizeConfig.horizontalBlockSize * 1.5),
                           child: Icon(
                             Icons.add,
                             color: kWhite,
-                            size: (SizeConfig.horizontalBlockSize * 2),
+                            size: (SizeConfig.horizontalBlockSize * 3),
                           ),
                         ),
                       ),
@@ -173,7 +176,7 @@ class HomeScreen extends ConsumerWidget {
                     child: PromptForm(),
                   ),
                   SizedBox(
-                    height: SizeConfig.verticalBlockSize * 55,
+                    height: SizeConfig.verticalBlockSize * 60,
                     child: ref.read(editorControllerProvider),
                   ),
                 ],
