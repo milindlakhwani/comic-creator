@@ -1,16 +1,26 @@
 # comic_creator
+# Flutter Comic Panel Generator
+https://milind-comic-creator.netlify.app/
 
-A new Flutter project.
+This Flutter project utilizes the Hugging Face Model API to generate comic panels dynamically. Users can create comic strips with up to 10 panels and export them as images. The exported image's width and height are adjustable for customization.
 
-## Getting Started
+## Features
+- Generate comic panels using Hugging Face Model API.
+- Create comic strips with up to 10 panels.
+- Adjust the width and height of the exported image.
 
-This project is a starting point for a Flutter application.
+## Installation
+To use this project, follow these steps:
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `flutter pub get` to install dependencies.
+4. Run the project using `flutter run`.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Usage
+1. This is a web app so launch it for web.
+2. Use the interface to select your desired comic panel and add the prompt to generate an image.
+3. Click on "Save and Export" button, adjust the width and height settings if necessary.
+4. Export the comic strip as an image.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
