@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:comic_creator/home/widgets/panel_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
@@ -106,11 +107,15 @@ class SaveController {
                               width: 3,
                             ),
                           ),
-                          child: Image.memory(
-                            comicFrames[(i * cols) + j],
-                            fit: BoxFit.contain,
+                          child: PanelWidget(
+                            panel: comicFrames[(i * cols) + j],
                             height: height,
                           ),
+                          // child: Image.memory(
+                          //   comicFrames[(i * cols) + j].image,
+                          //   fit: BoxFit.contain,
+                          //   height: height,
+                          // ),
                         ),
                     ],
                   ),

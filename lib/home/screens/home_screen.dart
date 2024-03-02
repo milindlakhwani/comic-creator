@@ -1,3 +1,4 @@
+import 'package:comic_creator/home/controller/prompt_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,8 +21,14 @@ class HomeScreen extends ConsumerWidget {
       showToast("Max 10 panels allowed");
       return false;
     }
+
+    if (ref.read(promptController)) {
+      showToast("Please wait for current process to finish");
+      return false;
+    }
     final homeController = ref.read(homeControllerProvider.notifier);
-    homeController.insertImage();
+    int len = homeController.insertImage();
+    ref.read(promptViewEnabled.notifier).update((state) => len - 1);
     return true;
   }
 
@@ -171,11 +178,11 @@ class HomeScreen extends ConsumerWidget {
             : Column(
                 children: [
                   SizedBox(
-                    height: SizeConfig.verticalBlockSize * 25,
+                    height: SizeConfig.verticalBlockSize * 30,
                     child: PromptForm(),
                   ),
                   SizedBox(
-                    height: SizeConfig.verticalBlockSize * 60,
+                    height: SizeConfig.verticalBlockSize * 55,
                     child: ref.read(editorControllerProvider),
                   ),
                 ],
@@ -184,7 +191,6 @@ class HomeScreen extends ConsumerWidget {
       floatingActionButton: SizeConfig.screenWidth < 600
           ? FloatingActionButton(
               onPressed: () {
-                scrollToBottom(ref);
                 bool flag = insertBlankImage(ref);
                 if (flag) scrollToBottom(ref);
               },

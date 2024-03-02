@@ -47,6 +47,7 @@ dependencies:
   toggle_list: ^0.3.1
   toggle_switch: ^2.1.0
   flutter_glow: ^0.3.0
+  firebase_core: ^2.25.5
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -85,6 +88,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  
   fonts:
     - family: OpenSans
       fonts:
@@ -97,6 +101,9 @@ flutter:
           weight: 900
         - asset: assets/fonts/OpenSans-SemiBold.ttf
           weight: 800
+    - family: badaboom
+      fonts:
+        - asset: assets/fonts/badaboom.ttf\
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

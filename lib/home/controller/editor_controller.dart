@@ -45,7 +45,7 @@ class ComicStrip extends ConsumerWidget {
       controller: _scrollController,
       itemCount: comicFrames.length,
       itemBuilder: (BuildContext context, int index) {
-        return ComicFrame(image: comicFrames[index], index: index);
+        return ComicFrame(panel: comicFrames[index], index: index);
       },
     );
   }

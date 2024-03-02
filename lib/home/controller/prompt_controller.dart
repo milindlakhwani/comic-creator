@@ -32,11 +32,12 @@ class PromptController extends StateNotifier<bool> {
         super(false);
 
   // Checks the response for failure and success
-  void genImageFromQuery(String query) async {
+  void genImageFromQuery(String query, String speechText) async {
     state = true;
     final res = await _apiProvider.getImageFromPrompt(query);
     res.fold((l) => showToast(l.message), (r) {
-      _homeControllerProvider.updateImage(r, _ref.read(promptViewEnabled));
+      _homeControllerProvider.updateImage(
+          r, _ref.read(promptViewEnabled), query, speechText);
     });
     state = false;
   }

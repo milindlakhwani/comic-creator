@@ -1,3 +1,4 @@
+import 'package:comic_creator/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:toggle_list/toggle_list.dart';
@@ -73,7 +74,12 @@ class PromptForm extends ConsumerWidget {
 
   // Clear the textbox and remove the focus, when the user is done editing
   void clearEntries(WidgetRef ref) {
+    if (ref.read(promptController)) {
+      showToast("Please wait for current process to finish");
+      return;
+    }
     queryTextController.text = "";
+    speechTextController.text = "";
     ref.read(promptViewEnabled.notifier).update((state) => -1);
   }
 
@@ -99,25 +105,30 @@ class PromptForm extends ConsumerWidget {
   }
 
   // Initiate the image generation process, sends prompt to the api
-  void genImage(WidgetRef ref) {
-    String query = queryTextController.text;
+  void genImage(WidgetRef ref, int frameIndex) {
+    String prompt = queryTextController.text;
     String speech = speechTextController.text;
-    String prompt = query;
-    bool flag = true;
-    if (speech.isNotEmpty) {
-      prompt += 'along with speech bubble having text $speech';
-    }
+
     if (prompt.isEmpty) {
       showToast("Please enter text!");
-      flag = false;
+      return;
     }
-    if (flag) ref.read(promptController.notifier).genImageFromQuery(prompt);
+
+    ref
+        .read(homeControllerProvider.notifier)
+        .addPromtAndSpeech(prompt, speech, frameIndex);
+    ref.read(promptController.notifier).genImageFromQuery(prompt, speech);
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isLoading = ref.watch(promptController);
     final promptViewController = ref.watch(promptViewEnabled);
+    final comicFrames = ref.watch(homeControllerProvider);
+    if (promptViewController != -1) {
+      queryTextController.text = comicFrames[promptViewController].prompt;
+      speechTextController.text = comicFrames[promptViewController].speechText;
+    }
     return ToggleList(
       toggleAnimationDuration: const Duration(milliseconds: 150),
       divider: const SizedBox(height: 10),
@@ -236,7 +247,7 @@ class PromptForm extends ConsumerWidget {
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                           ),
-                          onPressed: () => genImage(ref),
+                          onPressed: () => genImage(ref, promptViewController),
                           child: Text(
                             "Generate",
                             style: MyFonts.light.setColor(textColor).size(17),

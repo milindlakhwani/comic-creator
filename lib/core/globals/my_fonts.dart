@@ -15,6 +15,11 @@ class MyFonts {
       const TextStyle(fontFamily: _fontFamily, fontWeight: FontWeight.w700);
   static TextStyle get semiBold =>
       const TextStyle(fontFamily: _fontFamily, fontWeight: FontWeight.w800);
+  static TextStyle get comic => const TextStyle(
+        fontFamily: "badaboom",
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1.5,
+      ).size(SizeConfig.horizontalBlockSize * 1.25);
 }
 
 extension TextStyleHelpers on TextStyle {

@@ -1,5 +1,9 @@
 import 'dart:typed_data';
 
+import 'package:comic_creator/core/models/panel.dart';
+
+Panel newPanel = Panel(prompt: "", speechText: "", image: blankImage);
+
 // Stores a blank image
 Uint8List blankImage = Uint8List.fromList([
   137,

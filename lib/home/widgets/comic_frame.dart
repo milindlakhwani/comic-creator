@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import 'package:comic_creator/core/globals/size_config.dart';
+import 'package:comic_creator/core/models/panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:comic_creator/core/globals/my_colors.dart';
@@ -14,10 +16,10 @@ class ComicFrame extends ConsumerWidget {
   // Takes the image and the index to perform operations like edit and delete
   const ComicFrame({
     super.key,
-    required this.image,
+    required this.panel,
     required this.index,
   });
-  final Uint8List image;
+  final Panel panel;
   final int index;
 
   // Function that opens the prompt screen for this frame
@@ -66,8 +68,28 @@ class ComicFrame extends ConsumerWidget {
                   color: kWhite, borderRadius: BorderRadius.circular(16)),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.memory(
-                  image,
+                child: Stack(
+                  children: [
+                    Image.memory(
+                      panel.image,
+                      width: SizeConfig.horizontalBlockSize * 29,
+                      height: SizeConfig.verticalBlockSize * 60,
+                      fit: BoxFit.cover,
+                    ),
+                    if (panel.speechText.isNotEmpty)
+                      Positioned(
+                        bottom: 0,
+                        child: Container(
+                          width: SizeConfig.horizontalBlockSize * 29,
+                          color: kWhite,
+                          child: Text(
+                            "   ${panel.speechText}",
+                            style: MyFonts.comic.setColor(kBlack),
+                            softWrap: true,
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
               ),
             ),
